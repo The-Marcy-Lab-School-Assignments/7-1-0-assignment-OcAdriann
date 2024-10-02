@@ -1,14 +1,24 @@
-// TODO: Make this a controlled component. On each stroke of the key, it should filter the displayed pokemon
+import { useState } from "react";
 
-const Filter = () => {
+const Filter = ({ search, setSearch }) => {
+
+    const handleChange = (e) => {
+        setSearch(e.target.value);
+    };
+
     return (
         <div className="ui search">
             <div className="ui icon input">
-                <input className="prompt" placeholder="Search by Name..." />
+                <input 
+                    className="prompt" 
+                    placeholder="Search by Name..." 
+                    value={search} 
+                    onChange={handleChange} 
+                />
                 <i className="search icon" />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Filter
+export default Filter;
